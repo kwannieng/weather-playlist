@@ -1,6 +1,8 @@
 import './App.css';
+import { BrowserRouter,Routes,Route } from 'react-router-dom';
 import React, { useState } from 'react';
 import { search_tracks } from './spotify_api';
+import Home from './pages/Home';
 
 
 function App() {
@@ -24,6 +26,13 @@ function App() {
 
   return (
     <div>
+      <BrowserRouter>
+        <div className='pages'>
+          <Routes>
+            <Route path='/' element={<Home/>} />
+          </Routes>
+        </div>
+      </BrowserRouter>
       <h1>Search for Tracks on Spotify</h1>
       <input type="text" value={query} onChange={handleInputChange} />
       <button onClick={handleSearch}>Search Tracks</button>
